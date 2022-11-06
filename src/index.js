@@ -1,14 +1,42 @@
-require('./db/db')
-const express=require('express')
-const app=express()
-const port=3000
-app.use(express.json())
-app.get("/server1_get",async(req,res)=>{
-    return res.send("Hello world from iwp")
-})
-app.post("/server1_post",async(req,res)=>{
-    return res.send(req.body)
-})
-app.listen(port,()=>{
-    console.log("Server startedg")
-})
+const express = require('express');
+const exphbs = require('express-handlebars');
+const path = require('path');
+const uuid = require('uuid').v4;
+const session = require('express-session');
+const app = express();
+const routes = require('./controllers/routes');
+const signup = require('./controllers/signup');
+const login = require('./controllers/login');
+
+
+app.set('view engine', '.hbs');
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
+
+app.use(session(
+    {
+        genid: function (req) {
+            return uuid();
+        },
+        secret: 'keyboard cat',
+        resave: false,
+        saveUninitialized: true,
+        cookie: {
+            maxAge: 600000
+        }
+    }));
+
+app.engine(
+    '.hbs',
+    exphbs({
+        extname: '.hbs',
+    })
+);
+
+app.use('/', routes);
+app.use('/signup', signup);
+app.use('/loginForm/', login);
+
+app.listen(3000, function () {
+    console.log("Server is running on port 3000.");
+});

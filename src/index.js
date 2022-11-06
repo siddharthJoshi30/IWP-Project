@@ -10,5 +10,5 @@ app.post("/server1_post",async(req,res)=>{
     return res.send(req.body)
 })
 app.listen(port,()=>{
-    console.log("Server started")
+    console.log("Server startedg")
 })

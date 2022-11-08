@@ -91,14 +91,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
          </button>
-      <a class="navbar-brand" href="#"><img src="./images/logo.png" alt="Smiley face" style="float:left;width:60px;height:36px;"><i>Express Shuttle</i> </a> 
+      <a class="navbar-brand" href="#"><img src="../images/logo.png" alt="Smiley face" style="float:left;width:60px;height:36px;"><i>Express Shuttle</i> </a> 
     </div>
   <div class= "collapse navbar-collapse navbar-right" id="bs-shuttle-navbar-collapse-1">
     <ul class= "nav navbar-nav">
        <ul class= "nav navbar-nav">
-      <li> <a href="./first_page.php"> Home </a> </li>
+      <li> <a href="./user.php"> Home </a> </li>
   <li> <a href="./about.html"> About </a> </li>
-      <li> <a href="./homepage_shuttle.php"> Logout </a> </li>
+      <li> <a href="./homepage.php"> Logout </a> </li>
       
     </ul>
     </ul>
@@ -117,9 +117,9 @@
 //$_SESSION['logged_user']=1;
 //session_start();
 $server="localhost";
-$username="root";
-$password="";
-$db="safar";
+$username="sid3008";
+$password="Sid@30082002";
+$db="mysql";
 $t= $_SESSION['logged_user'];
 $conn = new mysqli($server,$username,$password,$db);
 if($conn->connect_error){
@@ -181,7 +181,7 @@ else{ $result= $conn->query ("SELECT * FROM customer where cid = '$t'");
     </div>
 
   <button name="pay" type="submit" value="pay" class="btn btn-primary" onclick="displaypay()">Pay</button>
-  <button onclick="location.href='http://localhost/shuttle/user.php'" type="button" class="btn btn-primary" value="exit">
+  <button onclick="location.href='http://localhost/iwp-project/IWP-Project/src/user.php'" type="button" class="btn btn-primary" value="exit">
      Exit</button>
 
   </form>
@@ -222,9 +222,9 @@ Sat-Sun:<br> 8:00 am to 7:00 pm
             <div class="container">
                 <h3>Stay in touch!</h3>
                 <div class="media">
-                    <a href="https://www.facebook.com/" id="f"><img src="./images/social/facebook.png" alt="not found"></a>
-                    <a href="https://www.instagram.com/" id="i"><img src="./images/social/instagram.png" alt="not found"></a>
-                    <a href="https://www.skype.com/en/" id="s"><img src="./images/social/skype.png" alt="not found"></a>
+                    <a href="https://www.facebook.com/" id="f"><img src="../images/social/facebook.png" alt="not found"></a>
+                    <a href="https://www.instagram.com/" id="i"><img src="../images/social/instagram.png" alt="not found"></a>
+                    <a href="https://www.skype.com/en/" id="s"><img src="../images/social/skype.png" alt="not found"></a>
                 </div>
             </div>
         </section>

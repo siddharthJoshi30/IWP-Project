@@ -71,7 +71,7 @@
 		<div class="i1">
 			<form action="pay_amount.php" name="form1"><input type=radio name="r1" required>Credit Card
 		</div>
-		<img id="card" src="images/credit.jpg">
+		<img id="card" src="../images/credit.jpg">
 		<p class="p1">
 			Card Number *:<br><input type="text" name="cardNumber" id="cardNum" value="" onblur="validate()" required>
 			<br><br>
@@ -102,7 +102,7 @@
 		<form action="pay_amount.php" name="form1">
 			<div class="i2"><input type=radio name="r1" required>Debit Card
 			</div></br>
-			<img id="card" src="images/cards.jpg">
+			<img id="card" src="../images/cards.jpg">
 			<p class="p2">
 				Select Bank *<br>
 				<select name="select">

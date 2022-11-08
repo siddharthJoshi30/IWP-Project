@@ -62,7 +62,7 @@
     </div></br>
     <table>
       <tr>
-        <td><img id="card" src="images/cards.jpg">&nbsp&nbsp&nbsp&nbsp<img id="card1" src="images/paypal.jpg">
+        <td><img id="card" src="../images/cards.jpg">&nbsp&nbsp&nbsp&nbsp<img id="card1" src="../images/paypal.jpg">
         </td>
       </tr>
     </table>

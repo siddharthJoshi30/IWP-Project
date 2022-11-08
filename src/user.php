@@ -88,7 +88,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"> <img src="./images/logo.png" alt="Smiley face"
+        <a class="navbar-brand" href="#"> <img src="../images/logo.png" alt="Smiley face"
             style="float:left;width:60px;height:36px;"><i> Express Shuttle</i> </a>
       </div>
       <div class="collapse navbar-collapse navbar-right" id="bs-shuttle-navbar-collapse-1">
@@ -144,7 +144,7 @@ if($conn->connect_error){
 
 ?>
         <div class="panel panel-body detail">
-          <img id="pholder" class="center" src="./images/placeholder.png">
+          <img id="pholder" class="center" src="../images/placeholder.png">
           <br>
           <br>
           <table class="table">
@@ -168,7 +168,7 @@ if($conn->connect_error){
           <br>
           <br>
           <div class="wrapper">
-            <button onclick="location.href='http://localhost/iwp-project/book.php'" type="button" class="btn btn-success"
+            <button onclick="location.href='http://localhost/iwp-project/IWP-Project/src/book.php'" type="button" class="btn btn-success"
               value="book">
               Call Shuttle</button>
           </div>
@@ -195,7 +195,7 @@ if($conn->connect_error){
           </a>
 
         </div>
-        <img src="./images/cab.png" alt="Cab">
+        <img src="../images/cab.png" alt="Cab">
       </div>
     </div>
   </div>
@@ -230,9 +230,9 @@ if($conn->connect_error){
       <div class="container">
         <h3>Stay in touch!</h3>
         <div class="media">
-          <a href="https://www.facebook.com/" id="f"><img src="./images/social/facebook.png" alt="not found"></a>
-          <a href="https://www.instagram.com/" id="i"><img src="./images/social/instagram.png" alt="not found"></a>
-          <a href="https://www.skype.com/en/" id="s"><img src="./images/social/skype.png" alt="not found"></a>
+          <a href="https://www.facebook.com/" id="f"><img src="../images/social/facebook.png" alt="not found"></a>
+          <a href="https://www.instagram.com/" id="i"><img src="../images/social/instagram.png" alt="not found"></a>
+          <a href="https://www.skype.com/en/" id="s"><img src="../images/social/skype.png" alt="not found"></a>
         </div>
       </div>
     </section>

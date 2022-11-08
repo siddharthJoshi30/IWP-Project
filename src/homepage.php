@@ -262,7 +262,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"> <img src="./images/logo.png" alt="Smiley
+                <a class="navbar-brand" href="#"> <img src="../images/logo.png" alt="Smiley
 face" style="float:left;width:60px;height:36px;"><i>Express Shuttle</i> </a>
             </div>
             <div class="collapse navbar-collapse navbar-right" id="bs-shuttle-navbar-collapse-1">
@@ -353,14 +353,13 @@ btn-primary">Login</button>
                                 <input type="checkbox" required>
                                 <span class="checkmarks"></span>
                             </label>
-                            <button name="add" type="submit" value="add" class="btn btn-primary"
-                                onclick="display()">Submit</button>
+                            <button name="add" type="submit" value="add" class="btn btn-primary" onclick="display()">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <img src="./images/bus.gif" style="float:right;width:800px;height:500px;" alt="A
+        <img src="../images/bus.gif" style="float:right;width:800px;height:500px;" alt="A
 comfortable shuttle ride round the corner">
         </form>
     </div>
@@ -379,28 +378,28 @@ comfortable shuttle ride round the corner">
         <div class="col-md-3">
             16
             <div class="w3-container w3-2018-sailor-blue w3-hover-black w3-animate-bottom" id="adv">
-                <img id="photo" src="./images/money.jpg">
+                <img id="photo" src="../images/money.jpg">
                 <h2>Easy credit transfer</h2>
                 <p>You can easily add credit to your account</p>
             </div>
         </div>
         <div class="col-md-3">
             <div class="w3-container w3-2018-sailor-blue w3-hover-black w3-animate-bottom" id="adv">
-                <img id="photo" src="./images/track.png">
+                <img id="photo" src="../images/track.png">
                 <h2>Track your shuttle</h2>
                 <p>Easy tracking with our GPS tracking facility</p>
             </div>
         </div>
         <div class="col-md-3">
             <div class="w3-container w3-2018-sailor-blue w3-hover-black w3-animate-bottom" id="adv">
-                <img id="photo" src="./images/security.jpg">
+                <img id="photo" src="../images/security.jpg">
                 <h2>Security</h2>
                 <p>Safe and secure money transfer and travelling </p>
             </div>
         </div>
         <div class="col-md-3">
             <div class="w3-container w3-2018-sailor-blue w3-hover-black w3-animate-bottom" id="adv">
-                <img id="photo" src="./images/time.jpg">
+                <img id="photo" src="../images/time.jpg">
                 <h2>Time management</h2>
                 <p>Save your time by tracking when the nearest shuttle will arrive</p>
             </div>
@@ -409,7 +408,7 @@ comfortable shuttle ride round the corner">
     </div>
     <!--end of carousel type content-->
     <!-- footer-->
-    17
+    
     <div id="footer">
         <p><b>Contact us:</b><br><br>
             Vellore Institute of Technology,<br> kadpadi, Vellore - 632014<br>
@@ -441,12 +440,12 @@ comfortable shuttle ride round the corner">
             <div class="container">
                 <h3>Stay in touch!</h3>
                 <div class="media">
-                    <a href="https://www.facebook.com/" id="f"><img src="./images/social/facebook.png"
+                    <a href="https://www.facebook.com/" id="f"><img src="../images/social/facebook.png"
                             alt="not found"></a>
-                    <a href="https://www.instagram.com/" id="i"><img src="./images/social/instagram.png"
+                    <a href="https://www.instagram.com/" id="i"><img src="../images/social/instagram.png"
                             alt="not found"></a>
                     
-                    <a href="https://www.skype.com/en/" id="s"><img src="./images/social/skype.png" alt="not found"></a>
+                    <a href="https://www.skype.com/en/" id="s"><img src="../images/social/skype.png" alt="not found"></a>
                 </div>
             </div>
         </section>
@@ -510,21 +509,21 @@ comfortable shuttle ride round the corner">
             {
                 $_SESSION['logged_user']= $row1['cid'];
                 echo '<script type="text/javascript">
-                window.location = "http://localhost/iwp-project/user.php";
+                window.location = "http://localhost/iwp-project/IWP-Project/src/user.php";
                 </script>';
             }
             else if (mysqli_num_rows($result2)>0)
             {
                 $_SESSION['logged_user']= $row2['cid'];
                 echo '<script type="text/javascript">
-                window.location = "http://localhost/iwp-project/admin.php";
+                window.location = "http://localhost/iwp-project/IWP-Project/src/admin.php";
         
                 </script>';
             }
             else
             {
                 echo '<script type="text/javascript">
-                window.location="http://localhost/iwp-project/homepage.php";
+                window.location="http://localhost/iwp-project/IWP-Project/src/homepage.php";
                 window.alert("Invalid Username or password");
                 
                 </script>';

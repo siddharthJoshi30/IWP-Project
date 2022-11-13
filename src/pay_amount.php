@@ -241,9 +241,9 @@ if (isset($_POST['pay']))
 {
   $t=$_SESSION['logged_user'];
   $server="localhost";
-$username="root";
-$password="";
-$db="safar";
+$username="sid3008";
+$password="Sid@30082002";
+$db="mysql";
 $conn = new mysqli($server,$username,$password,$db);
 if($conn->connect_error){
     die("Connection failed".mysqli_connect_error());
@@ -253,11 +253,12 @@ else {
   $result= $conn->query ("SELECT * FROM customer where cid = '$t'");
   $row = $result->fetch_assoc();
   $m=$row['amount']+$l;
-  $sql1="update customer set customer.amount='$m' where customer.cid='$t'";
+  //$sql1="update customer set customer.amount='$m' where customer.cid='$t'";
   //$result1=mysqli_query($conn,$sql1);
   //$row1 = mysqli_fetch_assoc($result1);
-  $result1= $conn->query ("update customer set customer.amount='$m' where customer.cid='$t'");
+  $result1= $conn->query ("update customer set amount='$m' where cid='$t'");
   $row1 = $result->fetch_assoc();
+  var_dump($row1);
   // if (mysqli_num_rows($result1)>0)
   //   {
   //      $_SESSION['logged_user']= $row1['cid'];

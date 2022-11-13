@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+﻿<?php session_start(); ?>
 <!DOCTYPE HTML>
 <html>
 
@@ -88,13 +88,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"> <img src="../images/logo.png" alt="Smiley face"
-            style="float:left;width:60px;height:36px;"><i> Express Shuttle</i> </a>
+        <a class="navbar-brand" href="#"><img src="../images/logo.png" alt="Smiley face"
+            style="float:left;width:60px;height:36px;"><i>Express Shuttle</i> </a>
       </div>
       <div class="collapse navbar-collapse navbar-right" id="bs-shuttle-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <ul class="nav navbar-nav">
-            <li> <a href="./user.php"> Home </a> </li>
+            <li> <a href="./admin.php"> Home </a> </li>
             <li> <a href="./about.html"> About </a> </li>
             <li> <a href="./homepage.php"> Logout </a> </li>
 
@@ -112,33 +112,32 @@
           <h4 class="panel-title" align="center"> Your Information </h4>
         </div>
 
-        <?php 
+        <?php
 //$_SESSION['logged_user']=1;
 //session_start();
-$server="localhost";
-$username="sid3008";
-$password="Sid@30082002";
-$db="mysql";
-$t= $_SESSION['logged_user'];
-$conn = new mysqli($server,$username,$password,$db);
-if($conn->connect_error){
-    die("Connection failed".mysqli_connect_error());
+$server = "localhost";
+$username = "sid3008";
+$password = "Sid@30082002";
+$db = "mysql";
+$t = $_SESSION['logged_user'];
+$conn = new mysqli($server, $username, $password, $db);
+if ($conn->connect_error) {
+  die("Connection failed" . mysqli_connect_error());
 }
-  $result= $conn->query ("SELECT * FROM customer where cid = '$t'");
-  $row = $result->fetch_assoc();
-  //$result1= $conn->query ("SELECT * FROM ride_details where cid = '$t' ORDER BY rid DESC LIMIT 1");
-  //$row1 = $result1->fetch_assoc();
-  //echo mysqli_num_rows($result1);
-  /*if (mysqli_num_rows($result)>0)
-  {
-    $count= mysqli_num_rows($result);
-  }
+$result = $conn->query("SELECT * FROM customer where cid = '$t'");
+$row = $result->fetch_assoc();
+//echo mysqli_num_rows($result1);
+/*if (mysqli_num_rows($result)>0)
+ {
+ $count= mysqli_num_rows($result);
+ }
  while($row = $res1->fetch_assoc()) 
-{*/
+ {*/
 
-  $n = $row['name'];
-  $e = $row['email'];
-  $g = $row['type'];
+
+$n = $row['name'];
+$e = $row['email'];
+$g = $row['type'];
 
 //mysqli_close($conn);
 
@@ -161,17 +160,12 @@ if($conn->connect_error){
             </tr>
             <tr>
               <td align="center">Type:
-                <?php echo "$g";?>
+                <?php echo "$g"; ?>
               </td>
             </tr>
           </table>
           <br>
           <br>
-          <div class="wrapper">
-            <button onclick="location.href='http://localhost/iwp-project/IWP-Project/src/book.php'" type="button" class="btn btn-success"
-              value="book">
-              Call Shuttle</button>
-          </div>
         </div>
       </div>
     </div>
@@ -181,18 +175,17 @@ if($conn->connect_error){
       <div class="panel panel-success">
         <div class="panel-heading" align="center"><b>Dashboard</b></div>
         <div class="panel-body log">
-          <a href="AccountChange.php">
+          <a href="accountchangeadmin.php">
             <h5 style="color:black;">Modify Account</h5>
           </a>
-          <a href="AccountChange.php">
+          <a href="accountchangeadmin.php">
             <h5 style="color:black;">Delete Account</h5>
           </a>
-          <a href="payment.php">
-            <h5 style="color:black;">Add Amount</h5>
+          <a href="Shuttle Management.php">
+            <h5 style="color:black;">Shuttle Management</h5>
           </a>
-
+          
         </div>
-        <img src="../images/cab.png" alt="Cab">
       </div>
     </div>
   </div>
@@ -227,17 +220,15 @@ if($conn->connect_error){
       <div class="container">
         <h3>Stay in touch!</h3>
         <div class="media">
-          <a href="https://www.facebook.com/" id="f"><img src="../images/social/facebook.png" alt="not found"></a>
-          <a href="https://www.instagram.com/" id="i"><img src="../images/social/instagram.png" alt="not found"></a>
-          <a href="https://www.skype.com/en/" id="s"><img src="../images/social/skype.png" alt="not found"></a>
+          <a href="https://www.facebook.com/" id="f"><img src="../images/facebook.png" alt="not found"></a>
+          <a href="https://www.instagram.com/" id="i"><img src="../images/instagram.png" alt="not found"></a>
+          <a href="https://www.skype.com/en/" id="s"><img src="../images/skype.png" alt="not found"></a>
         </div>
       </div>
     </section>
-    <p style="width: 1500px;text-align:center;">Developed by Astha Chaudhary, Roshini Thangavel and Siddhant Chourasia
+    <p style="width: 1500px;text-align:center;">Developed by Anish Patankar, Dwija Patel and Siddharth Joshi
     </p>
   </div>
-
-
 </body>
 
 </html>

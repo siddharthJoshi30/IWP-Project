@@ -190,7 +190,7 @@ if($conn->connect_error){
       </div> 
 
     <div class= "panel panel-body" id="darshan">
-<form id="form1" action="#" method="POST">
+<form id="form1" action="details_shuttle.php" method="POST">
     <div class="form-group has-feedback">
     <label for="source">Source:</label>
     <input type="text" class="form-control" id= "source" name="source" placeholder="source" required>
@@ -228,10 +228,15 @@ if($conn->connect_error){
     </div>
   </div>
 
-  <button name="add" type="submit" value="add" class="btn btn-primary">Submit</button>
+  <button name="add" type="submit" value="add" class="btn btn-primary" onclick="checkRadio()">Submit</button>
     <button onclick="location.href='http://localhost/iwp-project/IWP-Project/src/user.php'" type="button" class="btn btn-primary" value="exit">
      Exit</button>
   </form>
+    <script>
+      function checkRadio(){
+        window.alert("Cab booked !!");
+      }
+    </script>
   </div>
 </div>
 </div>
@@ -348,7 +353,7 @@ echo $fare;
 echo $driver;*/
 $user= $_SESSION['logged_user'];
 $conn->query ("INSERT INTO ride_details(cid,source,destination,p_mode,c_type,fare,dname,ride_time) VALUES ('$user','$s','$d','$p','$m','$fare','$driver',CURRENT_TIMESTAMP())");
-$conn->query ("UPDATE customer SET amount=amount-'$fare' WHERE customer.cid='$user'");
+$conn->query ("UPDATE customer SET amount=amount-'$fare' WHERE cid='$user'");
 mysqli_close($conn);
   echo '<script type="text/javascript">
         window.location="http://localhost/iwp-project/IWP-Project/src/user.php";

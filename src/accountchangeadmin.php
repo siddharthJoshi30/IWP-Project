@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start();
+?>
 <!DOCTYPE HTML>
 <html>
 
@@ -14,6 +15,15 @@
 
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+    function displaydel() {
+      alert("Account Deleted");
+    }
+    function displaych() {
+      alert("Account Modified");
+    }
+  </script>
 
   <style>
     .detail {
@@ -89,12 +99,12 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#"> <img src="../images/logo.png" alt="Smiley face"
-            style="float:left;width:60px;height:36px;"><i> Express Shuttle</i> </a>
+            style="float:left;width:60px;height:36px;"><i>Express Shuttle</i> </a>
       </div>
       <div class="collapse navbar-collapse navbar-right" id="bs-shuttle-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <ul class="nav navbar-nav">
-            <li> <a href="./user.php"> Home </a> </li>
+            <li> <a href="./admin.php"> Home </a> </li>
             <li> <a href="./about.html"> About </a> </li>
             <li> <a href="./homepage.php"> Logout </a> </li>
 
@@ -111,37 +121,32 @@
         <div class="panel-heading">
           <h4 class="panel-title" align="center"> Your Information </h4>
         </div>
-
-        <?php 
+        <?php
 //$_SESSION['logged_user']=1;
 //session_start();
-$server="localhost";
-$username="sid3008";
-$password="Sid@30082002";
-$db="mysql";
-$t= $_SESSION['logged_user'];
-$conn = new mysqli($server,$username,$password,$db);
-if($conn->connect_error){
-    die("Connection failed".mysqli_connect_error());
-}
-  $result= $conn->query ("SELECT * FROM customer where cid = '$t'");
+$server = "localhost";
+$username = "sid3008";
+$password = "Sid@30082002";
+$db = "mysql";
+$t = $_SESSION['logged_user'];
+$conn = new mysqli($server, $username, $password, $db);
+if ($conn->connect_error) {
+  die("Connection failed" . mysqli_connect_error());
+} else {
+  $result = $conn->query("SELECT * FROM customer where cid = '$t'");
   $row = $result->fetch_assoc();
-  //$result1= $conn->query ("SELECT * FROM ride_details where cid = '$t' ORDER BY rid DESC LIMIT 1");
-  //$row1 = $result1->fetch_assoc();
   //echo mysqli_num_rows($result1);
   /*if (mysqli_num_rows($result)>0)
-  {
-    $count= mysqli_num_rows($result);
-  }
- while($row = $res1->fetch_assoc()) 
-{*/
+   {
+   $count= mysqli_num_rows($result);
+   }
+   while($row = $res1->fetch_assoc()) 
+   {*/
 
   $n = $row['name'];
   $e = $row['email'];
   $g = $row['type'];
-
-//mysqli_close($conn);
-
+}
 ?>
         <div class="panel panel-body detail">
           <img id="pholder" class="center" src="../images/placeholder.png">
@@ -161,38 +166,70 @@ if($conn->connect_error){
             </tr>
             <tr>
               <td align="center">Type:
-                <?php echo "$g";?>
+                <?php echo "$g"; ?>
               </td>
             </tr>
           </table>
           <br>
           <br>
           <div class="wrapper">
-            <button onclick="location.href='http://localhost/iwp-project/IWP-Project/src/book.php'" type="button" class="btn btn-success"
-              value="book">
-              Call Shuttle</button>
+            <button name="delete" type="submit" value="delete" class="btn btn-primary" onclick="displaydel()">Delete
+              Account</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- end of generic info-->
+    <?php
+if (isset($_POST['delete'])) {
+  //session_start();
+  $t = $_SESSION['logged_user'];
+  $server = "localhost";
+  $username = "sid3008";
+  $password = "Sid@30082002";
+  $db = "mysql";
+  $conn = new mysqli($server, $username, $password, $db);
+  if ($conn->connect_error) {
+    die("Connection failed" . mysqli_connect_error());
+  } else {
+    echo 'successful';
+    $conn->query("DELETE FROM customer WHERE cid=$t");
+    unset($_POST['delete']);
+  }
+}
+?>
     <div class="col-md-8">
       <div class="panel panel-success">
-        <div class="panel-heading" align="center"><b>Dashboard</b></div>
+        <div class="panel-heading" align="center"><b>Account Modification Options</b></div>
         <div class="panel-body log">
-          <a href="AccountChange.php">
-            <h5 style="color:black;">Modify Account</h5>
-          </a>
-          <a href="AccountChange.php">
-            <h5 style="color:black;">Delete Account</h5>
-          </a>
-          <a href="payment.php">
-            <h5 style="color:black;">Add Amount</h5>
-          </a>
+
+          <div class="panel panel-body">
+            <form id="form1" action="#" method="POST">
+              <div class="form-group has-feedback">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                <i class="glyphicon glyphicon-user form-control-feedback"></i>
+              </div>
+              <div class="form-group has-feedback">
+                <label for="newname">New Name</label>
+                <input type="text" class="form-control" name="newname" id="newname" placeholder="New Name">
+                <i class="glyphicon glyphicon-user form-control-feedback"></i>
+              </div>
+              <div class="form-group has-feedback">
+                <label for="newpass">New Password</label>
+                <input type="newpass" class="form-control" id="newpass" name="newpass" placeholder="New Password">
+                <i class="glyphicon glyphicon-envelope form-control-feedback"></i>
+              </div>
+
+              <button name="modify" type="submit" value="modify" class="btn btn-primary"
+                onclick="displaych()">Submit</button>
+              <button onclick="location.href='http://localhost/iwp-project/IWP-Project/src/admin.php'" type="button" class="btn btn-primary"
+                value="exit">
+                Exit</button>
+            </form>
+          </div>
 
         </div>
-        <img src="../images/cab.png" alt="Cab">
       </div>
     </div>
   </div>
@@ -227,9 +264,9 @@ if($conn->connect_error){
       <div class="container">
         <h3>Stay in touch!</h3>
         <div class="media">
-          <a href="https://www.facebook.com/" id="f"><img src="../images/social/facebook.png" alt="not found"></a>
-          <a href="https://www.instagram.com/" id="i"><img src="../images/social/instagram.png" alt="not found"></a>
-          <a href="https://www.skype.com/en/" id="s"><img src="../images/social/skype.png" alt="not found"></a>
+          <a href="https://www.facebook.com/" id="f"><img src="../images/facebook.png" alt="not found"></a>
+          <a href="https://www.instagram.com/" id="i"><img src="../images/instagram.png" alt="not found"></a>
+          <a href="https://www.skype.com/en/" id="s"><img src="../images/skype.png" alt="not found"></a>
         </div>
       </div>
     </section>
@@ -237,7 +274,39 @@ if($conn->connect_error){
     </p>
   </div>
 
-
 </body>
 
 </html>
+
+<?php
+if (isset($_POST['modify'])) {
+  session_start();
+  $_SESSION['logged_user'];
+  $server = "localhost";
+  $username = "sid3008";
+  $password = "Sid@30082002";
+  $db = "mysql";
+  $conn = new mysqli($server, $username, $password, $db);
+  if ($conn->connect_error) {
+    die("Connection failed" . mysqli_connect_error());
+  } else {
+    $u = $_POST["email"];
+    $e = $_POST["newname"];
+    $l = $_POST["newpass"];
+    $sql1 = "update customer set name='$e', password='$l' where email='$u'";
+    $result1 = mysqli_query($conn, $sql1);
+    $row1 = mysqli_fetch_assoc($result1);
+    if (mysqli_num_rows($result1) > 0) {
+      $_SESSION['logged_user'] = $row1['cid'];
+      echo 'Success';
+    } else {
+      echo 'Fail';
+    }
+    unset($_POST['modify']);
+  }
+
+}
+
+
+
+?>
